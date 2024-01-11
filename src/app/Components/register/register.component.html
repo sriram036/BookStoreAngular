@@ -1,0 +1,56 @@
+<div class="main">
+    <div class="form">
+        <div class="divLogo">
+            <div>
+                <img class="loginImage" src="../../../assets/Images/2766594@2x.png" />
+            </div>
+            <div>
+                <p style="font-size: large;font-weight: bold;">ONLINE BOOK SHOPPING</p>
+            </div>
+        </div>
+    </div>
+    <div class="registerForm">
+        <div class="registerFormButtons">
+            <button mat-button (click)="openLogin()">LOGIN</button>
+            <button mat-button (click)="openSignup()">SIGNUP</button>
+        </div>
+        <form class="signUp" *ngIf="signUp" [formGroup]="addUser" (ngSubmit)="RegisterUser()">
+            <mat-form-field appearance="outline">
+                <mat-label>Full Name</mat-label>
+                <input formControlName="fullName" matInput>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Email Id</mat-label>
+                <input formControlName="email" matInput>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input type="password" formControlName="password" matInput>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Mobile Number</mat-label>
+                <input formControlName="mobileNumber" matInput>
+            </mat-form-field>
+            <button style="background-color: #A03037;color: white;" mat-button color="primary" type="submit">Signup</button>
+        </form>
+        <form class="signUp" *ngIf="login" [formGroup]="loginUser" (ngSubmit)="LoginUser()">
+            <mat-form-field appearance="outline">
+                <mat-label>Email Id</mat-label>
+                <input formControlName="email" matInput>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input type="password" formControlName="password" matInput>
+            </mat-form-field>
+            <button mat-button>Forgot Passwotd?</button>
+            <button style="background-color: #A03037;color: white;" mat-button color="primary">Login</button>
+            <div class="divider">
+                <h2>OR</h2>
+            </div>
+            <div class="endButtons">
+                <button style="background-color: #4266B2;color: white;" mat-button color="primary">Facebook</button>
+                <button style="background-color: #e4e4e4;color: black;" mat-button color="primary">Google</button>
+            </div>
+        </form>
+    </div>
+</div>

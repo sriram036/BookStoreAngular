@@ -1,0 +1,45 @@
+<div>
+    <small><button (click)="goToDashBoard()" style="color: #9d9d9d;" mat-button>Home /</button></small>
+    <small>My cart</small>
+</div>
+<div class="main">
+    <mat-accordion>
+        <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    My cart <span>&#40;</span>{{BooksData.length}}<span>&#41;</span>
+                </mat-panel-title>
+                <mat-panel-description style="display: flex;justify-content: flex-end;">
+                    <mat-form-field style="border: 1px solid #dcdcdc;border-radius: 1px;">
+                        <mat-label>Use current location</mat-label>
+                        <mat-select name="food">
+                            <mat-option [value]="">value</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div style="display: flex;justify-content: space-between;" *ngFor="let book of BooksData">
+                <div style="display: flex;width: 50%;margin-top: 20px;">
+                    <img [src]="book.bookImage">
+                    <div style="display: flex;flex-direction: column;padding-left: 10px;">
+                        <small><strong>{{book.bookTitle}}</strong></small>
+                        <small style="color: #9d9d9d;">by {{book.bookAuthor}}</small>
+                        <div style="display: flex;">
+                            <small><strong>Rs. {{book.bookDiscountPrice}}</strong></small>&nbsp;&nbsp;
+                            <small style="color: #9d9d9d;"><s>Rs. {{book.bookOriginalPrice}}</s></small>
+                        </div>
+                        <div>
+                            <small><button (click)="reduceQuantity(book)" mat-icon-button><mat-icon style="opacity: 50%;">remove_circle_outline</mat-icon></button></small>
+                            <small><input style="width: 15%;text-align: center;opacity: 50%;" [value]="book.cartQuantity" mat-input></small>
+                            <small><button (click)="addQuantity(book)" mat-icon-button><mat-icon style="opacity: 50%;">add_circle_outline</mat-icon></button></small>
+                            <small><button mat-button (click)="removeCartBook(book)">Remove</button></small>
+                        </div>
+                    </div>
+                </div>
+                <div style="display: flex;align-items: flex-end;">
+                    <button (click)="sendMessage(book)" mat-raised-button color="primary">PLACE ORDER</button>
+                </div>
+            </div>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>

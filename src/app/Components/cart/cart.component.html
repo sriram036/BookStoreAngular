@@ -1,0 +1,52 @@
+<div class="main">
+    <header>
+        <app-header></app-header>
+    </header>
+    <div class="bodyDashboard">
+        <div style="min-width: 100%;">
+            <app-cartdata [BooksData]="cartBooks" (messageEvent)="receiveMessage($event)"></app-cartdata>
+        </div>
+        <br>
+        <div>
+            <app-shipping-address (messageEvent)="receiveAddressType($event)" [ShipAddress]="userAddress" [UserData]="userData"></app-shipping-address>
+        </div>
+        <br>
+        <div>
+            <div class="mainSummary">
+                <mat-accordion>
+                    <mat-expansion-panel hideToggle>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                Order Summary
+                            </mat-panel-title>
+                            <mat-panel-description>
+                                
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+                        <div style="display: flex;justify-content: space-between;">
+                            <div *ngIf="visible">
+                                <div style="display: flex;width: 100%;margin-top: 20px;">
+                                    <img [src]="message.bookImage">
+                                    <div style="display: flex;flex-direction: column;padding-left: 10px;">
+                                        <small><strong>{{message.bookTitle}}</strong></small>
+                                        <small style="color: #9d9d9d;">by {{message.bookAuthor}}</small>
+                                        <div style="display: flex;">
+                                            <small><strong>Rs. {{message.bookDiscountPrice * message.cartQuantity}}</strong></small>&nbsp;&nbsp;
+                                            <small style="color: #9d9d9d;"><s>Rs. {{message.bookOriginalPrice * message.cartQuantity}}</s></small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="display: flex;width: 100%;align-items: flex-end;justify-content: flex-end;">
+                                <button [disabled]="!visible" (click)="orderBook(message)" mat-raised-button color="primary">CHECKOUT</button>
+                            </div>
+                        </div>
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div><app-footer></app-footer></div>
+    </footer>
+</div>

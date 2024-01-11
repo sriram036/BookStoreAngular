@@ -1,0 +1,14 @@
+<div class="main">
+    <button (click)="goToDashboard()" mat-button><img src="../../../assets/Images/education.svg"></button>
+    <h2 style="color: white;align-self: center;">Bookstore</h2>
+    <mat-form-field class="search">
+        <mat-label>Search</mat-label>
+        <mat-icon matPrefix>search</mat-icon>
+        <input matInput>
+    </mat-form-field>
+    <button mat-button [matMenuTriggerFor]="account"><img src="../../../assets/Images/icons8-account-24.png"></button>
+    <mat-menu #account="matMenu">
+        <button mat-menu-item (click)="closeAccount()"><img src="../../../assets/Images/logout_FILL0_wght400_GRAD0_opsz24.png"><span>Logout</span></button>
+    </mat-menu>
+    <button (click)="openCart()" mat-button><img src="../../../assets/Images/icons8-cart-48.png"></button>
+</div>

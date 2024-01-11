@@ -1,0 +1,11 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.bodyDashboard{
+    flex: 1;
+    padding-left: 10%;
+    padding-right: 10%;
+}

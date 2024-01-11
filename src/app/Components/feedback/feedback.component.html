@@ -1,0 +1,19 @@
+<div style="display: flex;justify-content: space-between;margin-bottom: 10px;" *ngFor="let feedback of FeedbackData">
+    <div>
+        <button mat-icon-button style="background-color: #f5f5f5;color: #707070;text-align: center;">{{feedback.userId}}</button>
+    </div>&nbsp;&nbsp;
+    <div style="flex: 1;">
+        <div style="display: flex;flex-direction: column;">
+            <p>{{feedback.userId}}</p>
+            <div style="display: flex;">
+                <div *ngFor="let n of numSequence(feedback.rating);">
+                    <small><img style="height: 50%;" src="../../../assets/Images/icons8-star-48.png"></small>
+                </div>
+                <div *ngFor="let n of numSequence(5-feedback.rating);">
+                    <img style="height: 60%;width: 100%;opacity: 50%;" src="../../../assets/Images/star-border.svg">&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+            </div>
+            <small>{{feedback.comment}}</small>
+        </div>
+    </div>
+</div>

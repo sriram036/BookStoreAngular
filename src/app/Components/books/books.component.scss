@@ -1,0 +1,29 @@
+.main{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card{
+    max-height: 45%;
+    max-width: 20%;
+    min-width: 20%;
+    min-height: 45%;
+    border-radius: 10px;
+    border: 1px solid #e2e2e2;
+    margin-top: 20px;
+}
+.cardData{
+    border-radius: 0px 0px 10px 10px;
+    max-height: 25%;
+    max-width: 20%;
+    min-width: 20%;
+    min-height: 25%;
+    margin-right: 20px;
+    border-left: 1px solid #e2e2e2;
+    border-right: 1px solid #e2e2e2;
+    border-bottom: 1px solid #e2e2e2;
+    padding: 10px 15px 10px 15px;
+}

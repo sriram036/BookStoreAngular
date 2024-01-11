@@ -1,0 +1,48 @@
+<div class="main">
+    <header>
+        <app-header></app-header>
+    </header>
+    <div class="bodyDashboard">
+        <div class="divMain">
+            <div class="imageWithButton">
+                <div class="imageDiv">
+                    <div>
+                        <img style="width: 100%;" [src]="bookData.bookImage">
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: space-between;margin-top: 10px;">
+                    <button (click)="addCart(bookData.bookId)" style="background-color: #A03037; color: white;" mat-button>ADD TO BAG</button>
+                    <button (click)="addWishlist()" style="background-color: #333333; color: white;" mat-button>WISHLIST</button>
+                </div>
+            </div>
+            <div class="dataDiv">
+                <div><h2>{{bookData.bookTitle}}</h2></div>
+                <div>
+                    <h4 style="color: #878787;">by {{bookData.bookAuthor}}</h4>
+                </div>
+                <div style="display: flex;">
+                    <div
+                        style="background-color: #388e3c;display: flex; align-items: center;padding: 0px 2px 0px 2px;justify-content: space-between;border-radius: 1px;margin: 0px;">
+                        <small style="color: white;font-size: medium;">{{bookData.bookRating}}</small>&nbsp;
+                        <small><img src="../../../assets/Images/star-16.ico"></small>
+                    </div>
+                    <p style="color: #878787;"><span>&#40;</span>{{bookData.noOfUsersRated}}<span>&#41;</span></p>
+                </div>
+                <div style="display: flex;">
+                    <p>Rs.{{bookData.bookDiscountPrice}}</p>&nbsp;&nbsp;
+                    <p style="color: #878787;"><s>Rs.{{bookData.bookOriginalPrice}}</s></p>
+                </div>
+                <hr>
+                <p style="color: #878787;">Book Detail</p>
+                <p style="color: #373434;">{{bookData.bookDetail}}</p>
+                <hr>
+                <div>
+                    <app-feedback [FeedbackData]="Feedbacks"></app-feedback>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div><app-footer></app-footer></div>
+    </footer>
+</div>

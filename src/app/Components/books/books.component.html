@@ -1,0 +1,31 @@
+<div class="main">
+    <div class="card" *ngFor="let book of array">
+        <div (click)="onClick(book)">
+            <div
+                style="display: flex;justify-content: center;min-height: 50%;border-radius: 10px 10px 0px 0px;background-color: #f5f5f5; padding-top: 10px;padding-bottom: 10px;">
+                <img style="text-align: center;" [src]="book.bookImage">
+            </div>
+            <div style="padding-left: 20px;max-height: 20%;display: flex;flex-direction: column;justify-content: space-between;">
+                <p style="font-weight: bold;" >{{book.bookTitle}}</p>
+                <p style="color: #878787;">by {{book.bookAuthor}}</p>
+                <div style="display: flex;">
+                    <div style="background-color: #388e3c;display: flex; align-items: center;padding: 0px 2px 0px 2px;justify-content: space-between;border-radius: 1px;margin: 0px;">
+                        <small style="color: white;font-size: medium;">{{book.bookRating}}</small>&nbsp;
+                        <small><img src="../../../assets/Images/star-16.ico"></small>
+                    </div>
+                    &nbsp;&nbsp;
+                    <p style="color: #878787;"><span>&#40;</span>{{book.noOfUsersRated}}<span>&#41;</span></p>
+                </div>
+                <div style="display: flex;">
+                    <p style="font-weight: bold;">Rs.{{book.bookDiscountPrice}}</p>
+                    &nbsp;&nbsp;
+                    <p style="color: #878787;"><s>Rs.{{book.bookOriginalPrice}}</s></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="display: flex; justify-content: flex-end;align-items: flex-end;">
+        <mat-paginator #paginator (page)="handlePage($event)" [pageSize]="pageSize" [pageIndex]="currentPage" [length]="AddedBooks.length" [pageSizeOptions]="[5, 10, 20]" aria-label="Select page">
+        </mat-paginator>
+    </div>
+</div>
